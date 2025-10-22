@@ -31,17 +31,17 @@ def topLogin(data: list) -> None:
         "content": None,
         "embeds": [
             {
-                "title": "FGO登录系统 - " + main.fate_region,
+                "title": "登录 - " + main.fate_region,
                 "description": f"登录成功。列出角色信息.\n\n{messageBonus}",
                 "color": 563455,
                 "fields": [
                     {
-                        "name": "御主名",
+                        "name": "御主",
                         "value": f"{name1}",
                         "inline": True
                     },
                     {
-                        "name": "朋友ID",
+                        "name": "ID",
                         "value": f"{fpids1}",
                         "inline": True
                     },
@@ -111,7 +111,7 @@ def topLogin(data: list) -> None:
                         "inline": True
                     },
                     {
-                        "name": "今天 获得的友情点",
+                        "name": "今天获得的友情点",
                         "value": f"+{login.add_fp}",
                         "inline": True
                     },
@@ -149,7 +149,7 @@ def shop(item: str, quantity: str) -> None:
         "content": None,
         "embeds": [
             {
-                "title": "FGO自动购物系统 - " + main.fate_region,
+                "title": "自动购物系统 - " + main.fate_region,
                 "description": f"购买成功.",
                 "color": 5814783,
                 "fields": [
@@ -202,7 +202,7 @@ def drawFP(servants, missions) -> None:
         "content": None,
         "embeds": [
             {
-                "title": "FGO自动抽卡系统 - " + main.fate_region,
+                "title": "自动抽卡系统 - " + main.fate_region,
                 "description": f"完成当日免费友情抽卡。列出抽卡结果.\n\n{message_mission}",
                 "color": 5750876,
                 "fields": [
@@ -250,7 +250,7 @@ def LTO_Gacha(servants) -> None:
         "content": None,
         "embeds": [
             {
-                "title": "FGO限定抽卡 - " + main.fate_region,
+                "title": "限定抽卡 - " + main.fate_region,
                 "description": f"完成限定友情抽卡。列出抽卡结果.",
                 "color": 16711680,
                 "fields": [
@@ -282,7 +282,7 @@ def Present(name, namegift, object_id_count) -> None:
         "content": None,
         "embeds": [
             {
-                "title": "FGO兑换系统 - JP",
+                "title": "兑换系统 - JP",
                 "description": "兑换成功",
                 "color": 8388736,
                 "fields": [
