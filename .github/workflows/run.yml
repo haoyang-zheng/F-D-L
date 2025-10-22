@@ -1,4 +1,4 @@
-name: FGO Login System
+name: Login System
 
 on:
   schedule:
