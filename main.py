@@ -14,6 +14,7 @@ webhook_discord_url = os.environ['webhookDiscord']
 device_info = os.environ.get('DEVICE_INFO_SECRET')
 appCheck = os.environ.get('APP_CHECK_SECRET')
 user_agent_2 = os.environ.get('USER_AGENT_SECRET_2')
+webhookEnable = os.environ['webhookEnable']
 fate_region = 'JP'
 
 userNums = len(userIds)
