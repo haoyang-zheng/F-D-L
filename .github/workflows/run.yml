@@ -36,9 +36,17 @@ jobs:
           webhookEnable: ${{ secrets.WEBHOOK_ENABLE }}
       - name: Keep-alive (60 days issue)
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --allow-empty -m "keep-alive: $(date)"
-          git push
+          # 最後にコミットされた日付を取得
+          LAST_COMMIT_DATE=$(git log -1 --format=%ct)
+          CURRENT_DATE=$(date +%s)
+          # 50日（4320000秒）経過しているかチェック
+          if [ $((CURRENT_DATE - LAST_COMMIT_DATE)) -gt 4320000 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "keep-alive: 60 days prevention"
+            git push
+          else
+            echo "Skipping keep-alive commit (less than 50 days since last activity)."
+          fi
 
 
