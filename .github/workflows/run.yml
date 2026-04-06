@@ -34,9 +34,11 @@ jobs:
           APP_CHECK_SECRET: ${{ secrets.APP_CHECK_SECRET }}
           USER_AGENT_SECRET_2: ${{ secrets.USER_AGENT_SECRET_2 }}
           webhookEnable: ${{ secrets.WEBHOOK_ENABLE }}
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v1
-        with:
-          use_api: true # API経由でリポジトリを更新して60日問題を回避
+      - name: Keep-alive (60 days issue)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "keep-alive: $(date)"
+          git push
 
 
