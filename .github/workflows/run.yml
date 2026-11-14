@@ -5,7 +5,10 @@ on:
     - cron: "00 0,12 * * *"
     #- cron: "00 12 * * *"
   workflow_dispatch:
-
+    inputs:
+      skip_blue_apple:
+        type: boolean
+        default: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,6 +38,7 @@ jobs:
           APP_CHECK_SECRET: ${{ secrets.APP_CHECK_SECRET }}
           USER_AGENT_SECRET_2: ${{ secrets.USER_AGENT_SECRET_2 }}
           webhookEnable: ${{ secrets.WEBHOOK_ENABLE }}
+          SKIP_BLUE_APPLE: ${{ inputs.skip_blue_apple }}
       - name: Keep-alive (60 days issue)
         run: |
           # 最後にコミットされた日付を取得
