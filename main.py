@@ -57,15 +57,14 @@ def main():
                 # time.sleep(0.5)
                 # instance.lq002()
                 # time.sleep(2)
-                instance.buyBlueApple()
+                if os.environ.get('SKIP_BLUE_APPLE', 'false') != 'true':
+                    instance.buyBlueApple()
                 # time.sleep(1)
                 # instance.lq003()
                 # time.sleep(1)
                 # instance.drawFP()
                 # time.sleep(1)
                 # instance.LTO_Gacha()
-                
-
 
             except Exception as ex:
                 logger.error(ex)
